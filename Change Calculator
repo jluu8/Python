@@ -1,0 +1,34 @@
+""" https://web.archive.org/web/20180612183650if_/https://github.com/jorgegonzalez/beginner-projects#solutions: Change Calculator
+Create a program that allows your friend to input a certain amount of change, and then print how how many quarters, dimes, nickels, and pennies are needed to make up the amount needed.
+So your friend doesn't have to calculate how much change is needed, allow him to type in the amount of money given to him and the price of the item. The program should then tell him the amount of each coin he needs like usual.
+To make the program even easier to use, loop the program back to the top so your friend can continue to use the program without having to close and open it every time he needs to count change.
+"""
+
+
+def change(x):
+    money = x * 100
+    quarters = (money // 25)
+    money = money - (25 * quarters)
+    dimes = (money // 10)
+    money = money - (10 * dimes)
+    nickels = (money // 5)
+    money = money - (5 * nickels)
+    pennies = (money // 1)
+    money = money - (1 * pennies)
+    
+    amount = (f" {quarters} quarters, {dimes} dimes, {nickels} nickels, and {pennies} pennies")
+        
+    return amount
+    
+stop = False 
+
+while stop == False:
+    Money_Given = input("Please enter amount of money given: ")
+    Item_Price = input("Please enter price of item: ")
+
+    Money_Back = float(Money_Given) - float(Item_Price)
+    print (change(Money_Back))
+    Repeat = input("Would you like to start again? Y/N: ")
+    if Repeat == "N":
+        stop = True
+
