@@ -1,0 +1,14 @@
+import random
+P_Score = 0
+C_Score = 0
+
+Player = input ("rock, paper, or scissors: ")
+Computer = (random.randrange(1,3))
+
+if Player == "rock":
+    if Computer == 1:
+        print("Tie")
+    elif Computer == 2:
+        print("Player Wins!")
+    else:
+        print("Computer Wins!")
