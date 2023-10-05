@@ -1,14 +1,59 @@
+""" https://web.archive.org/web/20180612183650if_/https://github.com/jorgegonzalez/beginner-projects#solutions
+Create a rock-paper-scissors game.
+Ask the player to pick rock, paper or scissors.
+Have the computer chose its move.
+Compare the choices and decide who wins.
+Print the results.
+Subgoals:
+Give the player the option to play again.
+Keep a record of the score (e.g. Player: 3 / Computer: 6).
+
+"""
+
 import random
 P_Score = 0
 C_Score = 0
 
-Player = input ("rock, paper, or scissors: ")
-Computer = (random.randrange(1,3))
+stop = False 
+Moves = ["rock", "paper", "scissors"]
 
-if Player == "rock":
-    if Computer == 1:
-        print("Tie")
-    elif Computer == 2:
-        print("Player Wins!")
-    else:
-        print("Computer Wins!")
+while stop == False:
+    Player = input ("Pick rock, paper, or scissors: ")
+    Computer = Moves[(random.randrange(1,3))]
+    print("Computer went " + Computer)
+
+    if Player == "rock":
+        if Computer == "rock":
+            print("Tie")
+        elif Computer == "scissors":
+            P_Score += 1
+            print("Player Wins!")
+        else:
+            C_Score += 1
+            print("Computer Wins!")
+    if Player == "paper":
+        if Computer == "paper":
+            print("Tie")
+        elif Computer == "rock":
+            P_Score += 1
+            print("Player Wins!")
+        else:
+            C_Score += 1
+            print("Computer Wins!")
+    if Player == "scissors":
+        if Computer == "scissors":
+            print("Tie")
+        elif Computer == "paper":
+            P_Score += 1
+            print("Player Wins!")
+        else:
+            C_Score += 1
+            print("Computer Wins!")
+            
+    print (f" Player: {P_Score} / Computer: {C_Score}")
+    Repeat = input("Would you like to start again? Y/N: ")
+    if Repeat == "N":
+        C_Score = 0
+        P_Score = 0
+        print("Thanks for playing!")
+        stop = True
