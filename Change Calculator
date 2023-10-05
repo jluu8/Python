@@ -4,7 +4,6 @@ So your friend doesn't have to calculate how much change is needed, allow him to
 To make the program even easier to use, loop the program back to the top so your friend can continue to use the program without having to close and open it every time he needs to count change.
 """
 
-
 def change(x):
     money = x * 100
     quarters = (money // 25)
@@ -25,10 +24,12 @@ stop = False
 while stop == False:
     Money_Given = input("Please enter amount of money given: ")
     Item_Price = input("Please enter price of item: ")
-
     Money_Back = float(Money_Given) - float(Item_Price)
-    print (change(Money_Back))
-    Repeat = input("Would you like to start again? Y/N: ")
-    if Repeat == "N":
-        stop = True
-
+    if (Money_Given < Item_Price):
+        Money_Needed = abs(Money_Back)
+        print(f" That is not enough money. I need an extra ${Money_Needed}")
+    else:
+        print (change(Money_Back))
+        Repeat = input("Would you like to start again? Y/N: ")
+        if Repeat == "N":
+            stop = True
