@@ -13,7 +13,7 @@ Blank = []
 Lifes = 3
 while len(Blank) < len(Hangman):
     Blank.append("-")
-print(Blank)
+print(''.join(Blank))
 while Lifes > 0:
     Guess = input("Pick a letter: ")
     Found = False
@@ -24,8 +24,11 @@ while Lifes > 0:
             Blank[count] = Guess
             print("Letter found")
         count += 1
+    if Blank == Hangman:
+        print("Congratulations the word was " + ''.join(Blank))
+        break
     
     if Found == False:
         print("Letter not found")
-        Lifes -= 1
-    print(Blank)
+        Lifes -= 1 
+    print(''.join(Blank))
