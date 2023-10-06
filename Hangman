@@ -4,7 +4,7 @@ Like the real game, there should be blank spots for each letter in the word, and
 You may choose how many wrong turns the user can make until the game ends.
 Subgoals:
 If the user loses, print out the word at the end of the game.
-Create a "give up" option.
+Create a "give up" option. (Did not do)
 
 """
 Word = input("Enter a word: ")
@@ -29,6 +29,9 @@ while Lifes > 0:
         break
     
     if Found == False:
-        print("Letter not found")
         Lifes -= 1 
+        print("Letter not found: " + str(Lifes) + " more lives")
+        if Lifes == 0:
+            print("Game over you ran out of lives. The word was " + ''.join(Hangman))
+            break
     print(''.join(Blank))
