@@ -49,7 +49,8 @@ while Round <= 5:
     print(f" Round {Round}")
     Playing_Cards = Cards.copy()
     while num_Cards <= 2:
-        card = Playing_Cards[(random.randrange(0,51))]
+        End = 51 - num_Cards
+        card = Playing_Cards[(random.randrange(0,End))]
         total += card
         Playing_Cards.remove(card)
         print(f" Card {num_Cards} = {card} ")
@@ -60,8 +61,10 @@ while Round <= 5:
         stop = input("Would you like to draw another card? Y/N: ")
         if stop == "N":
             Continue = False
+            Score -= 21 - total
         else:
-            card = Playing_Cards[(random.randrange(0,51))]
+            End = 51 - num_Cards
+            card = Playing_Cards[(random.randrange(0,End))]
             total += card
             Playing_Cards.remove(card)
             print(f" Card {num_Cards} = {card} ")
@@ -69,6 +72,7 @@ while Round <= 5:
             
             if total > 21:
                 print(f" Busted: Your total of {total} is over 21")
+                Score -= 21
                 break
             else:
                 print (f" Your total is: {total}")
@@ -76,5 +80,14 @@ while Round <= 5:
     num_Cards = 1
     total = 0
     Round += 1 
-Rank = "A"
+if Score >= 90:
+    Rank = "A"
+elif Score >= 80:
+    Rank = "B"
+elif Score >= 70:
+    Rank = "C"
+elif Score >= 60:
+    Rank = "D"
+else:
+    Rank = "F"
 print(f" Score = {Score} : Rank = {Rank}")
