@@ -30,20 +30,24 @@ card_adder = 1
 num_Cards = 1
 total = 0
 Continue = True
+Face_Cards = ["J","Q","K"]
 
 while total_cards < 52:
     card_adder_count = 0
-    if card_adder == 10:
-        while card_adder_count < 16:
-            Cards.append(10)
-            card_adder_count += 1
-            total_cards += 1
-    else:
+    if card_adder <= 10:
         while card_adder_count < 4:
             Cards.append(card_adder)
             card_adder_count += 1
             total_cards += 1
-        card_adder += 1
+
+    else:
+        while card_adder_count < 4:
+            for i in Face_Cards:
+                Cards.append(i)
+                card_adder_count += 1
+                total_cards += 1
+    card_adder += 1
+        
         
 while Round <= 5:
     print(f" Round {Round}")
@@ -51,7 +55,10 @@ while Round <= 5:
     while num_Cards <= 2:
         End = 51 - num_Cards
         card = Playing_Cards[(random.randrange(0,End))]
-        total += card
+        if (card == "J") or (card == "Q") or (card == "K"):
+            total += 10
+        else:
+            total += card
         Playing_Cards.remove(card)
         print(f" Card {num_Cards} = {card} ")
         num_Cards += 1
@@ -65,7 +72,10 @@ while Round <= 5:
         else:
             End = 51 - num_Cards
             card = Playing_Cards[(random.randrange(0,End))]
-            total += card
+            if (card == "J") or (card == "Q") or (card == "K"):
+                total += 10
+            else:
+                total += card
             Playing_Cards.remove(card)
             print(f" Card {num_Cards} = {card} ")
             num_Cards += 1
