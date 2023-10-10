@@ -10,6 +10,7 @@ Create a "give up" option. (Did not do)
 Word = input("Enter a word: ")
 Hangman = list(Word)
 Blank = []
+Used = []
 Lifes = 3
 while len(Blank) < len(Hangman):
     Blank.append("-")
@@ -24,6 +25,7 @@ while Lifes > 0:
             Blank[count] = Guess
             print("Letter found")
         count += 1
+    Used.append(Guess)
     if Blank == Hangman:
         print("Congratulations the word was " + ''.join(Blank))
         break
@@ -34,4 +36,4 @@ while Lifes > 0:
         if Lifes == 0:
             print("Game over you ran out of lives. The word was " + ''.join(Hangman))
             break
-    print(''.join(Blank))
+    print(''.join(Blank) + " Letters used " + ''.join(Used))
