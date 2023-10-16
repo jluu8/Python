@@ -3,8 +3,16 @@ Percentage = float(input("Enter tip percentage: "))
 Tip_Percentage = Percentage / 100
 
 Tip = Bill * Tip_Percentage
-
 Total = Bill + Tip
 
-print("Tip is $" + str(Tip))
-print("Total bill is $" + str(Total))
+Split = input("Are you splitting the check Y/N? ")
+if Split == "Y":
+    People = input("How many people are paying? ")
+    split_tip = Tip / int(People)
+    split_bill = Total / int(People)
+    print("Each person tips $" + str(split_tip))
+    print("Each person total bill is $" + str(split_bill))
+        
+else:
+    print("Tip is $" + str(Tip))
+    print("Total bill is $" + str(Total))
