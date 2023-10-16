@@ -1,0 +1,10 @@
+Bill = float(input("Enter Bill total: "))
+Percentage = float(input("Enter tip percentage: "))
+Tip_Percentage = Percentage / 100
+
+Tip = Bill * Tip_Percentage
+
+Total = Bill + Tip
+
+print("Tip is $" + str(Tip))
+print("Total bill is $" + str(Total))
